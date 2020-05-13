@@ -26,8 +26,11 @@ public class UserServiceImpl implements UserService {
 
 	public User addUser(@RequestBody User user) {
 		System.out.println("inside addUser method of UserService");
-		repos.save(user);
-		return user;
+		if (user != null) {
+			repos.save(user);
+			return user;
+		} else
+			return null;
 	}
 
 	public User findByUserId(int userId) {
